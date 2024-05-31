@@ -2,6 +2,9 @@
   "name": "design-patterns-eval",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "start": "bun run 1-singleton/index.ts && bun run 2-observer/index.ts && bun run 3-state/index.ts && bun run 4-decorator/index.ts && bun run 5-strategy/index.ts && bun run 6-adapter/index.ts && bun run 7-factory/index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
