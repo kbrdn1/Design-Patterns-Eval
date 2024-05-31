@@ -1,4 +1,4 @@
-# UML
+# UML - Exercice 1 - Singleton
 
 ```mermaid
 class PromotionManager {

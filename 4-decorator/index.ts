@@ -95,8 +95,6 @@ class AngelDecorator extends TreeDecorator {
     }
 }
 
-// Usage
-
 // Création d'un sapin de Noël sans décorations
 let tree: ChristmasTree = new BasicChristmasTree();
 

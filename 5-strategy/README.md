@@ -1,4 +1,4 @@
-# UML
+# UML - Exercice 5 - Strategy
 
 ```mermaid
 classDiagram
