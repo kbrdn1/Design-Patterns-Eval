@@ -1,5 +1,28 @@
 # Design Patterns Eval
 
+Install Bun:
+Bun supports Linux (x64 & arm64), macOS (x64 & Apple Silicon) and Windows (x64).
+
+> Linux users — Kernel version 5.6 or higher is strongly recommended, but the minimum is 5.1.
+```bash
+# with install script (recommended)
+curl -fsSL https://bun.sh/install | bash
+
+# on windows
+powershell -c "irm bun.sh/install.ps1 | iex"
+
+# with npm
+npm install -g bun
+
+# with Homebrew
+brew tap oven-sh/bun
+brew install bun
+
+# with Docker
+docker pull oven/bun
+docker run --rm --init --ulimit memlock=-1:-1 oven/bun
+```
+
 To install dependencies:
 
 ```bash
@@ -10,6 +33,12 @@ To run:
 
 ```bash
 bun run path/your-file.ts
+```
+
+To run all exercice:
+  
+```bash
+bun start
 ```
 
 This project was created using `bun init` in bun v1.1.10 [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
