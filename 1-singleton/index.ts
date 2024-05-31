@@ -1,4 +1,4 @@
-// Run: bun run singleton.index.ts
+// Run: bun run 1-singleton.index.ts
 
 console.log("==================================")
 console.log("Exerxice 1: Singleton Pattern")

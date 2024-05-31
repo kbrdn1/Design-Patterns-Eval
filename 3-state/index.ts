@@ -1,4 +1,4 @@
-// Run: bun run state/index.ts
+// Run: bun run 3-state/index.ts
 
 console.log("==================================")
 console.log("Exerxice 3: State Pattern")

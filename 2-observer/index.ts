@@ -1,4 +1,4 @@
-// Run: bun run observer/index.ts
+// Run: bun run 2-observer/index.ts
 
 console.log("==================================")
 console.log("Exerxice 2: Observer Pattern")
