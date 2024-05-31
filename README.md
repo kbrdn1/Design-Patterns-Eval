@@ -21,11 +21,11 @@ This project was created using `bun init` in bun v1.1.10 [Bun](https://bun.sh) i
 ## Règle de l'évaluation
 - Pour toutes les problématiques suivantes, vous devez :
     - Expliquer quel Design Pattern (et le nommer) est associé à cette problématique.
-    - Réaliser le code du Design Pattern **ainsi que** le code d'utilisation du Pattern pour prouver qu'il fonctionne (dans le program.cs)
+    - Réaliser le code du Design Pattern **ainsi que** le code d'utilisation du Pattern pour prouver qu'il fonctionne.
 - Bien entendu, comme pour les exercices en cours un simple programme console suffit.
 - Bonus : Réaliser l'UML (sur draw.io ou autre outil de modélisation UML, vous pouvez aussi le faire sur papier) correspondant au Design Pattern en appliquant le contexte de la problématique dans l'UML du pattern. L'UML sera uniquement un bonus ! (Sûrement +0,5 par UML réalisé)
 - Il me semble presque impossible de réaliser tous les patterns et c'est fait exprès ! L'objectif est d'en réaliser le plus possible sur l'ensemble proposé. La note 20 ne sera pas uniquement accessible en ayant réalisé tous les patterns. La note dépendra de la qualité et de la quantité de patterns réalisé.
-- Le rendu se fait en m'envoyant un zip de votre dossier complet (Pensez à supprimer les dossiers /bin et /obj de vos différents projets). **Renommez le zip avec votre nom et prénom svp !**. Dans le zip :
+- Le rendu se fait en m'envoyant un zip de votre dossier complet. **Renommez le zip avec votre nom et prénom svp !**. Dans le zip :
 	- Explication du choix du pattern pour la problématique
 	- UML (Bonus)
 	- Code du pattern
@@ -58,71 +58,57 @@ Chaque changement de météo doit être pris en compte pour tous les appareils e
 Vous devez faire en sorte de pouvoir composer entre n'importe quel type d'étudiant et n'importe quel comportement directement à la compilation. Donc il peut y avoir un étudiant fort qui rêvasse, un étudiant moyen qui dort, un étudiant mauvais qui questionne, etc... Tout ça sans multiplier les classes. (Attention, on parle d'ajout de comportement, ne vous trompez pas de pattern)
 
 6. Considérant ce code. A vous de trouver le moyen de rendre compatible l'utilisation de la classe ComposantPdf avec la classe DocumentHtml :
-```
-    public interface Document
-    {
-        string Contenu { set; }
-        void Dessine();
-        void Imprime();
+
+```typescript
+interface Document {
+    contenu: string;
+    dessine(): void;
+    imprime(): void;
+}
+
+class DocumentHtml implements Document {
+    protected _contenu: string = "";
+
+    get contenu(): string {
+        return this._contenu;
     }
 
-    public class DocumentHtml : Document
-    {
-        protected string _contenu;
-
-        public string Contenu
-        {
-            protected get
-            {
-                return _contenu;
-            }
-            set
-            {
-                _contenu = value;
-            }
-        }
-
-        public void Dessine()
-        {
-            Console.WriteLine("Dessine document HTML : " + Contenu);
-        }
-
-        public void Imprime()
-        {
-            Console.WriteLine("Imprime document HTML : " + Contenu);
-        }
+    set contenu(value: string) {
+        this._contenu = value;
     }
 
-    public class ComposantPdf
-    {
-        protected string Contenu;
-
-        public void PdfFixeContenu(string contenu)
-        {
-            Contenu = contenu;
-        }
-
-        public void PdfPrepareAffichage()
-        {
-            Console.WriteLine("Affichage PDF : Début");
-        }
-
-        public void PdfRafraichit()
-        {
-            Console.WriteLine("Affichage contenu PDF : " + Contenu);
-        }
-
-        public void PdfTermineAffichage()
-        {
-            Console.WriteLine("Affichage PDF : Fin");
-        }
-
-        public void PdfEnvoieImprimante()
-        {
-            Console.WriteLine("Impression PDF : " + Contenu);
-        }
+    dessine(): void {
+        console.log("Dessine document HTML : " + this.contenu);
     }
 
+    imprime(): void {
+        console.log("Imprime document HTML : " + this.contenu);
+    }
+}
+
+class ComposantPdf {
+    protected contenu: string = "";
+
+    pdfFixeContenu(contenu: string): void {
+        this.contenu = contenu;
+    }
+
+    pdfPrepareAffichage(): void {
+        console.log("Affichage PDF : Début");
+    }
+
+    pdfRafraichit(): void {
+        console.log("Affichage contenu PDF : " + this.contenu);
+    }
+
+    pdfTermineAffichage(): void {
+        console.log("Affichage PDF : Fin");
+    }
+
+    pdfEnvoieImprimante(): void {
+        console.log("Impression PDF : " + this.contenu);
+    }
+}
 ```
 
 7. Simplification de la création d'un objet **simple**, mais qui peut être instancié via des méthodes. L'objet créer sera un dé, ce dé peut prendre 3 formes différentes :
