@@ -2,7 +2,8 @@
 
 ```mermaid
 classDiagram
-    interface OrderState {
+    class OrderState {
+      <<interface>>
       +next(order: Order): void
       +pay(order: Order): void
       +prepare(order: Order): void
